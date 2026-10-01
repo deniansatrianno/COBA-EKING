@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk · Wisma Visit Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tema.css?v=3">
+  <style>
+    :root {
+      --pri2: color-mix(in srgb, var(--pri) 85%, #000);
+      --soft: var(--th);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font: 15px/1.55 Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--tx);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+    }
+
+    .brand {
+      position: relative;
+      overflow: hidden;
+      padding: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #eef3f7;
+      background: linear-gradient(155deg, var(--br1), var(--br2));
+    }
+
+    .brand::before,
+    .brand::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, .14), transparent 65%);
+    }
+
+    .brand::before {
+      width: 520px;
+      height: 520px;
+      top: -160px;
+      right: -140px;
+    }
+
+    .brand::after {
+      width: 420px;
+      height: 420px;
+      bottom: -140px;
+      left: -120px;
+    }
+
+    .brand>* {
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    .logo i {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .16);
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      max-width: 460px;
+    }
+
+    .brand p {
+      color: #c6d5e0;
+      max-width: 440px;
+      margin-top: 14px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: #cfdde7;
+      font-size: 14px;
+    }
+
+    li b {
+      display: block;
+      color: #fff;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    li .ic {
+      flex: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .13);
+      display: grid;
+      place-items: center;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .foot {
+      font-size: 12.5px;
+      color: #a9bdcb;
+    }
+
+    main {
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      position: relative;
+    }
+
+    .tema {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--bd);
+      background: var(--sf);
+      color: var(--tx);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .mlogo {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .mlogo i {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--pri);
+      color: var(--bg);
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+    }
+
+    .sub {
+      color: var(--mu);
+      margin: 6px 0 26px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .f {
+      margin-bottom: 18px;
+    }
+
+    .in {
+      position: relative;
+    }
+
+    input[type=email],
+    input[type=password],
+    input[type=text] {
+      width: 100%;
+      height: 46px;
+      padding: 0 14px;
+      border-radius: 10px;
+      border: 1px solid var(--bd);
+      background: var(--sf);
+      color: var(--tx);
+      font: inherit;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--pri);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--pri) 24%, transparent);
+    }
+
+    .eye {
+      position: absolute;
+      right: 6px;
+      top: 6px;
+      height: 34px;
+      padding: 0 10px;
+      border: 0;
+      background: none;
+      color: var(--mu);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: -4px 0 22px;
+      font-size: 13.5px;
+    }
+
+    .row label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .row a {
+      color: var(--pri);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    button.go {
+      width: 100%;
+      height: 48px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--pri);
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .15s;
+    }
+
+    [data-t=dark] button.go {
+      color: #12171c;
+    }
+
+    button.go:hover {
+      background: var(--pri2);
+    }
+
+    button.go:disabled {
+      opacity: .7;
+      cursor: wait;
+    }
+
+    .spin {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      animation: r .7s linear infinite;
+    }
+
+    @keyframes r {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .msg {
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 13.5px;
+      margin-bottom: 18px;
+    }
+
+    .msg.ok {
+      background: color-mix(in srgb, var(--ok) 14%, transparent);
+      color: var(--ok);
+    }
+
+    .msg.er {
+      background: color-mix(in srgb, var(--er) 14%, transparent);
+      color: var(--er);
+    }
+
+    .shake {
+      animation: s .35s;
+    }
+
+    @keyframes s {
+      25% {
+        transform: translateX(-6px);
+      }
+
+      75% {
+        transform: translateX(6px);
+      }
+    }
+
+    .demo {
+      margin-top: 26px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: var(--soft);
+      font-size: 13px;
+      color: var(--mu);
+    }
+
+    .demo b {
+      color: var(--tx);
+    }
+
+    .demo button {
+      margin-top: 8px;
+      border: 1px solid var(--bd);
+      background: var(--sf);
+      color: var(--tx);
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 12.5px;
+    }
+
+    @media (max-width: 860px) {
+      body {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        display: none;
+      }
+
+      .mlogo {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="brand">
+    <div class="logo"><i>W</i> Dapensi Trio Usaha</div>
+    <div>
+      <h1>Kelola wisma dan kunjungan dalam satu tempat.</h1>
+      <p>Pantau jadwal, tugaskan PIC, dan buktikan setiap kunjungan langsung dari lapangan.</p>
+      <ul>
+        <li><span class="ic"><svg viewBox="0 0 24 24">
+              <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg></span>
+          <div><b>Peta dan rute kunjungan</b>Urutan kunjungan terdekat dari lokasi Anda.</div>
+        </li>
+        <li><span class="ic"><svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <path d="M14 14h3v3h-3zM20 14v7M14 20h3" />
+            </svg></span>
+          <div><b>Check-in dengan scan QR</b>GPS, foto, dan tanda tangan sebagai bukti.</div>
+        </li>
+        <li><span class="ic"><svg viewBox="0 0 24 24">
+              <path d="M4 20V10M10 20V4M16 20v-8M22 20H2" />
+            </svg></span>
+          <div><b>Prioritas dan laporan otomatis</b>Tahu wisma mana yang perlu didahulukan.</div>
+        </li>
+      </ul>
+    </div>
+    <div class="foot">© 2026 Dapensi Trio Usaha · Sistem Informasi Internal</div>
+  </section>
+
+  <main>
+    <button class="tema" id="tema" aria-label="Ganti tema terang/gelap">🌙</button>
+    <div class="box">
+      <div class="mlogo"><i>W</i> Dapensi Trio Usaha</div>
+      <h2>Selamat datang kembali</h2>
+      <p class="sub">Masuk untuk melanjutkan ke Wisma Visit Management System.</p>
+      <div id="pesan" aria-live="polite"></div>
+      <form id="form" novalidate>
+        <div class="f"><label for="email">Email</label><input id="email" type="email" autocomplete="username"
+            placeholder="nama@perusahaan.co.id" required></div>
+        <div class="f"><label for="sandi">Kata sandi</label>
+          <div class="in"><input id="sandi" type="password" autocomplete="current-password"
+              placeholder="Masukkan kata sandi" required><button type="button" class="eye" id="eye">Lihat</button></div>
+        </div>
+        <div class="row"><label><input type="checkbox" id="ingat"> Ingat saya</label><a href="#" id="lupa">Lupa kata
+            sandi?</a></div>
+        <button class="go" id="go" type="submit">Masuk</button>
+      </form>
+      <div class="demo"><b>Akun demo</b> (server PHP + MySQL)<br>admin@perusahaan.co.id ·
+        admin123<br><button type="button" id="isi">Isi otomatis</button></div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var AKUN = [{ email: 'admin@perusahaan.co.id', sandi: 'admin123' }];
+      var $ = function (i) { return document.getElementById(i); };
+      var root = document.documentElement;
+      try { root.dataset.p = localStorage.getItem('wvms.palet') || 'teal'; } catch (e) { }
+      // Otoritas login ditentukan oleh session PHP, bukan localStorage/sessionStorage.
+      // Bersihkan flag lama agar tidak terjadi loop ketika session server sudah habis.
+      try {
+        fetch('backend/index.php?action=me', { credentials: 'same-origin', headers: { 'Accept': 'application/json' } })
+          .then(function (res) { return res.ok ? res.json() : null; })
+          .then(function (data) {
+            if (data && data.status === 'success') {
+              location.replace('index.html');
+            } else {
+              localStorage.removeItem('wvms.sesi');
+              sessionStorage.removeItem('wvms.sesi');
+            }
+          })
+          .catch(function () {
+            localStorage.removeItem('wvms.sesi');
+            sessionStorage.removeItem('wvms.sesi');
+          });
+      } catch (e) {
+        try { localStorage.removeItem('wvms.sesi'); sessionStorage.removeItem('wvms.sesi'); } catch (_) {}
+      }
+      // Tema: ikut pilihan terakhir di aplikasi, atau pengaturan sistem
+      var t = localStorage.getItem('wvms.tema') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      function setTema(v) { root.dataset.t = v; $('tema').textContent = v === 'dark' ? '☀️' : '🌙'; try { localStorage.setItem('wvms.tema', v); } catch (e) { } }
+      setTema(t);
+      $('tema').onclick = function () { setTema(root.dataset.t === 'dark' ? 'light' : 'dark'); };
+      function pesan(teks, jenis) { $('pesan').innerHTML = teks ? '<div class="msg ' + jenis + '">' + teks + '</div>' : ''; }
+      if (/[?&]keluar=1/.test(location.search)) { pesan('Anda telah keluar dengan aman.', 'ok'); history.replaceState(null, '', 'login.html'); }
+      $('eye').onclick = function () { var p = $('sandi'), lihat = p.type === 'password'; p.type = lihat ? 'text' : 'password'; this.textContent = lihat ? 'Sembunyikan' : 'Lihat'; };
+      $('lupa').onclick = function (e) { e.preventDefault(); pesan('Hubungi administrator untuk mengatur ulang kata sandi Anda.', 'er'); };
+      $('isi').onclick = function () { $('email').value = AKUN[0].email; $('sandi').value = AKUN[0].sandi; };
+      $('form').onsubmit = function (e) {
+        e.preventDefault();
+        var em = $('email').value.trim().toLowerCase(), pw = $('sandi').value;
+        if (!em || !pw) return gagal('Isi email dan kata sandi terlebih dahulu.');
+
+        var tombol = $('go');
+        tombol.disabled = true;
+        tombol.innerHTML = '<span class="spin"></span> Memeriksa…';
+        pesan('');
+
+        fetch('backend/index.php?action=login', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: em, sandi: pw, ingat: $('ingat').checked })
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data.status === 'success') {
+              location.replace('index.html');
+            } else {
+              tombol.disabled = false;
+              tombol.textContent = 'Masuk';
+              gagal(data.message || 'Email atau kata sandi salah.');
+            }
+          })
+          .catch(function (err) {
+            tombol.disabled = false;
+            tombol.textContent = 'Masuk';
+            gagal('Gagal terhubung ke server backend.');
+          });
+      };
+      function gagal(teks) { pesan(teks, 'er'); var b = $('form'); b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); }
+    })();
+  </script>
+</body>
+
+</html>

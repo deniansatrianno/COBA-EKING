@@ -1,0 +1,92 @@
+<div id="settings-header-slot"></div>
+
+<!-- ===== ROW 1: Konfigurasi Perusahaan & Preferensi Tampilan ===== -->
+<div class="cols" style="grid-template-columns: 1.2fr 0.8fr;">
+
+    <!-- Panel: Konfigurasi Perusahaan / Instansi -->
+    <div class="panel">
+        <h2>🏢 Informasi Instansi</h2>
+        <div class="pb">
+            <p class="mu" style="margin-bottom:14px; font-size:12px;">Data instansi ini akan tampil di header aplikasi dan laporan yang diekspor.</p>
+            <div id="cfg-company-slot"></div>
+        </div>
+    </div>
+
+    <!-- Panel: Preferensi Tampilan -->
+    <div class="panel">
+        <h2>🎨 Preferensi Tampilan</h2>
+        <div class="pb">
+            <p class="mu" style="margin-bottom:14px; font-size:12px;">Atur tampilan dan perilaku umum aplikasi sesuai kebutuhan Anda.</p>
+            <div id="cfg-display-slot"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== ROW 2: Kelola Data ===== -->
+<div class="panel">
+    <h2>💾 Kelola Data Aplikasi</h2>
+    <div class="pb">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+
+            <!-- Kartu Backup -->
+            <div style="border: 1px solid var(--bd); border-radius: 8px; padding: 18px; border-top: 3px solid var(--ok);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <span style="font-size: 24px;">📦</span>
+                    <div>
+                        <b style="display:block; font-size:14px;">Backup Data</b>
+                        <span class="mu" style="font-size:12px;">Ekspor seluruh data ke file JSON</span>
+                    </div>
+                </div>
+                <p class="mu" style="font-size:12px; margin-bottom:14px;">Unduh salinan lengkap database WVMS (wisma, kunjungan, log, konfigurasi) dalam format file <code>.json</code>.</p>
+                <button class="btn p" data-act="backupData" style="width:100%;">⬇ Download Backup JSON</button>
+            </div>
+
+            <!-- Kartu Restore -->
+            <div style="border: 1px solid var(--bd); border-radius: 8px; padding: 18px; border-top: 3px solid var(--in);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <span style="font-size: 24px;">📂</span>
+                    <div>
+                        <b style="display:block; font-size:14px;">Restore Data</b>
+                        <span class="mu" style="font-size:12px;">Pulihkan dari file backup JSON</span>
+                    </div>
+                </div>
+                <p class="mu" style="font-size:12px; margin-bottom:14px;">Pilih file <code>.json</code> backup yang pernah diunduh sebelumnya untuk memulihkan seluruh data ke kondisi tersimpan.</p>
+                <button class="btn" data-act="restoreData" style="width:100%; border-color: var(--in); color: var(--in);">⬆ Upload File Backup</button>
+            </div>
+
+            <!-- Kartu Reset -->
+            <div style="border: 1px solid var(--bd); border-radius: 8px; padding: 18px; border-top: 3px solid var(--er);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <span style="font-size: 24px;">⚠️</span>
+                    <div>
+                        <b style="display:block; font-size:14px;">Reset Data</b>
+                        <span class="mu" style="font-size:12px;">Kembalikan ke kondisi awal / demo</span>
+                    </div>
+                </div>
+                <p class="mu" style="font-size:12px; margin-bottom:14px;"><b style="color:var(--er);">Hati-hati!</b> Tindakan ini akan menghapus <b>seluruh data</b> dan mengembalikan aplikasi ke kondisi data demo awal. Tidak dapat dibatalkan!</p>
+                <button class="btn d" data-act="resetData" style="width:100%;">🗑 Reset ke Data Default</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ===== ROW 3: Log Aktivitas Sistem ===== -->
+<div class="panel">
+    <h2>📋 Log Aktivitas Sistem</h2>
+    <p class="mu" style="padding: 0 14px 10px; font-size: 12px;">Rekam jejak 50 aksi terakhir yang dilakukan pada aplikasi ini.</p>
+    <div class="tw">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 160px;">⏱ Waktu</th>
+                    <th style="width: 80px;">👤 Pengguna</th>
+                    <th style="width: 220px;">Aksi</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody id="log-table-body"></tbody>
+        </table>
+    </div>
+</div>

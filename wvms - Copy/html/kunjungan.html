@@ -1,0 +1,61 @@
+<div id="kunjungan-header-slot"></div>
+
+<!-- Tab Switcher -->
+<div class="tabs" style="margin-bottom: 1.25rem;" id="kunjungan-tabs">
+    <a href="#" class="on" data-act="switchKView" data-view="table">Tabel Kunjungan</a>
+    <a href="#" data-act="switchKView" data-view="calendar">Kalender Kunjungan</a>
+</div>
+
+<!-- Tampilan 1: Tabel Kunjungan -->
+<div id="kunjungan-view-table" class="panel" data-g="k">
+    <div class="tb">
+        <input type="search" placeholder="Cari nama wisma, kode, PIC, agenda…" data-g="k" data-q aria-label="Cari kunjungan" style="min-width: 250px;">
+        <select data-g="k" data-f="status" aria-label="Filter status">
+            <option value="">Semua Status</option>
+            <option value="Scheduled">Terjadwal</option>
+            <option value="Completed">Selesai</option>
+            <option value="Overdue">Terlambat</option>
+            <option value="Today">Hari Ini</option>
+            <option value="Cancelled">Dibatalkan</option>
+        </select>
+        <select data-g="k" data-f="pic" aria-label="Filter PIC"><option value="">Semua PIC</option></select>
+        <label class="fl-inline"><span>Dari tanggal</span><input type="date" data-g="k" data-f="dari" aria-label="Dari tanggal"></label>
+        <label class="fl-inline"><span>Sampai tanggal</span><input type="date" data-g="k" data-f="sampai" aria-label="Sampai tanggal"></label>
+        <button class="btn s" data-act="resetFilterK">Reset filter</button>
+        <span class="grow"></span>
+        <button class="btn s" data-act="jadwalOtomatis">Jadwal otomatis</button>
+        <button class="btn s" data-act="expK">Ekspor CSV</button>
+        <button class="btn s" data-act="expKXls">Ekspor Excel</button>
+    </div>
+    
+    <div id="kunjungan-bulk-slot" hidden></div>
+    
+    <div class="tw">
+        <table>
+            <thead>
+                <tr>
+                    <th class="ck"><input type="checkbox" data-g="k" data-all aria-label="Pilih semua"></th>
+                    <th data-g="k" data-sort="wismaNama">Wisma</th>
+                    <th data-g="k" data-sort="pic">PIC</th>
+                    <th data-g="k" data-sort="tgl">Tgl Rencana</th>
+                    <th data-g="k" data-sort="real">Tgl Realisasi</th>
+                    <th>Status</th>
+                    <th class="r">Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="kunjungan-table-body"></tbody>
+        </table>
+    </div>
+    
+    <div class="pg" id="kunjungan-pagination-slot"></div>
+</div>
+
+<!-- Tampilan 2: Kalender Kunjungan -->
+<div id="kunjungan-view-calendar" class="panel" hidden>
+    <div class="tb" style="justify-content: space-between; margin-bottom: 1rem;">
+        <button class="btn s" data-act="calPrev">&laquo; Bulan Sebelumnya</button>
+        <h2 id="cal-month-title" style="margin:0; font-size:16px;"></h2>
+        <button class="btn s" data-act="calNext">Bulan Berikutnya &raquo;</button>
+    </div>
+    <div id="calendar-grid" class="cal-grid" style="min-height: 400px;"></div>
+</div>

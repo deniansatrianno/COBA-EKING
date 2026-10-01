@@ -1,0 +1,77 @@
+<div id="profil-header-slot"></div>
+
+<!-- ===== ROW 1: Kartu Identitas & Statistik ===== -->
+<div class="cols" style="grid-template-columns: 0.8fr 1.2fr;">
+
+    <!-- Panel: Kartu Identitas User -->
+    <div class="panel" style="text-align: center;">
+        <h2>👤 Identitas Akun</h2>
+        <div class="pb">
+            <!-- Avatar -->
+            <div id="prof-avatar-preview" style="
+                width: 88px; height: 88px; border-radius: 50%;
+                background: var(--pri); color: #fff;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 2.2rem; font-weight: 700;
+                margin: 0 auto 14px auto;
+                box-shadow: 0 4px 16px rgba(23,54,93,0.25);
+            ">A</div>
+
+            <!-- Info Nama & Role -->
+            <h3 id="prof-disp-nama" style="font-size: 17px; margin: 0 0 4px;">Administrator</h3>
+            <span class="bdg b-Scheduled" id="prof-disp-role" style="margin-bottom: 8px; display: inline-block;">Admin</span>
+            <p id="prof-disp-email" class="mu" style="font-size: 13px; margin: 8px 0 0;">admin@perusahaan.co.id</p>
+
+            <hr style="border: none; border-top: 1px solid var(--bd); margin: 16px 0;">
+
+            <!-- Info Tambahan -->
+            <div style="text-align: left;">
+                <div class="dl" style="grid-template-columns: 110px 1fr; font-size: 13px;">
+                    <dt>Jabatan</dt>
+                    <dd id="prof-disp-jabatan">–</dd>
+                    <dt>Status</dt>
+                    <dd><span class="bdg b-Completed">Aktif</span></dd>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel: Statistik Kontribusi User -->
+    <div class="panel">
+        <h2>📊 Statistik Kontribusi</h2>
+        <div class="pb">
+            <div class="cards" style="grid-template-columns: 1fr 1fr; margin-bottom: 20px;">
+                <div class="card ok">
+                    <small>Total Kunjungan Selesai</small>
+                    <b id="stat-selesai">0</b>
+                </div>
+                <div class="card in">
+                    <small>Total Kunjungan Terjadwal</small>
+                    <b id="stat-terjadwal">0</b>
+                </div>
+                <div class="card wa">
+                    <small>Kunjungan Terlambat</small>
+                    <b id="stat-terlambat">0</b>
+                </div>
+                <div class="card">
+                    <small>Total Wisma Dikelola</small>
+                    <b id="stat-wisma">0</b>
+                </div>
+            </div>
+
+            <!-- Aktivitas Terakhir -->
+            <h3 style="font-size:13px; font-weight:600; margin-bottom: 10px; color: var(--mu); text-transform: uppercase; letter-spacing: 0.05em;">5 Aksi Terakhir</h3>
+            <div id="prof-recent-log" style="display: grid; gap: 6px;"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== ROW 2: Edit Profil ===== -->
+<div class="panel">
+    <h2>✏️ Ubah Informasi Profil</h2>
+    <div class="pb">
+        <p class="mu" style="font-size:12px; margin-bottom: 16px;">Perubahan ini akan memperbarui identitas yang tampil di header dan laporan aplikasi.</p>
+        <div class="g2" id="profil-form-slot"></div>
+    </div>
+</div>

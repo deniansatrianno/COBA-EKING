@@ -1,0 +1,112 @@
+<!-- Template Header Halaman (Breadcrumb & Title) -->
+<template id="tmpl-page-header">
+  <div class="crumb" data-element="crumb"></div>
+  <div class="ph">
+    <div>
+      <h1 data-element="title"></h1>
+      <p data-element="subtitle"></p>
+    </div>
+    <span class="grow"></span>
+    <div data-element="actions"></div>
+  </div>
+</template>
+
+<!-- Template Badge Status -->
+<template id="tmpl-badge">
+  <span class="bdg" data-element="badge"></span>
+</template>
+
+<!-- Template Item Notifikasi -->
+<template id="tmpl-notif-item">
+  <div class="it" data-element="item"></div>
+</template>
+
+<!-- Template Item Hasil Pencarian Global -->
+<template id="tmpl-search-item">
+  <a class="it" data-element="link">
+    <span data-element="title"></span>
+    <span class="mu" data-element="meta"></span>
+  </a>
+</template>
+
+<!-- Template Baris Tabel Kunjungan Ringkas (Dashboard) -->
+<template id="tmpl-dashboard-row">
+  <tr>
+    <td data-element="tgl"></td>
+    <td>
+      <b data-element="nama"></b><br>
+      <span class="mu" data-element="kode"></span>
+    </td>
+    <td data-element="pic"></td>
+    <td data-element="status"></td>
+    <td class="r">
+      <button class="btn s" data-act="detK" data-element="btn-detail">Detail</button>
+    </td>
+  </tr>
+</template>
+
+<!-- Template Baris Tabel Wisma -->
+<template id="tmpl-wisma-row">
+  <tr>
+    <td class="ck">
+      <input type="checkbox" data-element="checkbox">
+    </td>
+    <td>
+      <b data-element="nama"></b><br>
+      <span class="mu" data-element="alamat"></span>
+    </td>
+    <td data-element="kode"></td>
+    <td data-element="pic"></td>
+    <td class="r" data-element="kunjungan-count"></td>
+    <td class="r">
+      <button class="btn s" data-act="detW" data-element="btn-detail">Detail</button>
+      <button class="btn s" data-act="editW" data-element="btn-edit">Edit</button>
+      <button class="btn s d" data-act="delW" data-element="btn-delete">Hapus</button>
+    </td>
+  </tr>
+</template>
+
+<!-- Template Baris Tabel Kunjungan -->
+<template id="tmpl-kunjungan-row">
+  <tr>
+    <td class="ck">
+      <input type="checkbox" data-element="checkbox">
+    </td>
+    <td>
+      <b data-element="wisma-nama"></b><br>
+      <span class="mu" data-element="wisma-kode"></span>
+    </td>
+    <td data-element="pic"></td>
+    <td data-element="tgl-rencana"></td>
+    <td data-element="tgl-realisasi"></td>
+    <td data-element="status"></td>
+    <td class="r">
+      <button class="btn s" data-act="kirimWA" data-element="btn-wa" style="color: #2E7D32; border-color: #2E7D32;" title="Kirim Pengingat WA">WA</button>
+      <button class="btn s" data-act="detK" data-element="btn-detail">Detail</button>
+      <button class="btn s" data-act="editK" data-element="btn-edit">Edit</button>
+      <button class="btn s d" data-act="delK" data-element="btn-delete">Hapus</button>
+    </td>
+  </tr>
+</template>
+
+<!-- Template Baris Tabel Laporan Ringkasan -->
+<template id="tmpl-laporan-row">
+  <tr>
+    <td><b data-element="kode"></b></td>
+    <td data-element="nama"></td>
+    <td data-element="pic"></td>
+    <td class="r" data-element="terjadwal"></td>
+    <td class="r" data-element="selesai"></td>
+    <td class="r" data-element="terlambat"></td>
+    <td class="r"><b data-element="total"></b></td>
+  </tr>
+</template>
+
+<!-- Template Baris Log Aktivitas (Settings) -->
+<template id="tmpl-log-row">
+  <tr>
+    <td data-element="waktu"></td>
+    <td><b data-element="aksi"></b></td>
+    <td data-element="detail"></td>
+  </tr>
+</template>

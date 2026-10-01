@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <script>try{var _t=localStorage.getItem("wvms.tema");if(_t)document.documentElement.dataset.t=_t;var _p=localStorage.getItem("wvms.palet");if(_p)document.documentElement.dataset.p=_p}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wisma Visit Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/tema.css?v=3">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <meta name="theme-color" content="#17365d">
+</head>
+
+<body>
+  <a class="skip" href="#content">Lewati ke konten</a>
+
+  <header id="top">
+    <div class="wrap hd">
+      <div class="co">
+        <span class="logo" id="logo">W</span>
+        <div>
+          <b id="coName"></b>
+          <small id="coSub">Sistem Informasi Internal · Manajemen Wisma</small>
+        </div>
+      </div>
+
+      <div class="gs">
+        <input id="gsearch" type="search" placeholder="Cari wisma, kode, PIC, kunjungan…" aria-label="Pencarian global"
+          autocomplete="off">
+        <div id="gres" class="dd" hidden></div>
+      </div>
+
+      <div class="hr">
+        <div class="ddw">
+          <button class="ibtn" data-dd="notif" aria-label="Notifikasi">&#128276;<i id="bellN"></i></button>
+          <div class="dd r" id="dd-notif" hidden></div>
+        </div>
+
+        <div class="ddw">
+          <button class="usr" data-dd="usr">
+            <span class="av" id="uav"></span>
+            <span class="ut">
+              <b id="uName"></b>
+              <small id="uRole"></small>
+            </span>
+          </button>
+          <div class="dd r menu" id="dd-usr" hidden>
+            <!-- Contoh di bagian sidebar/header navigasi -->
+            <a href="#profil" data-nav="profil">Profil Saya</a>
+            <a href="#settings" data-nav="settings">Pengaturan</a>
+            <a href="#" data-act="logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav id="nav" aria-label="Menu utama">
+      <div class="wrap">
+        <!-- Link nav di-generate otomatis oleh App.chrome() di app.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- Modal Quick Search Palette (Ctrl + K) -->
+  <div id="quick-search-modal" class="modal-search-overlay" hidden>
+    <div class="modal-search-box">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <!-- index.html -->
+        <input type="text" id="quick-search-input" placeholder="Cari wisma, kunjungan, navigasi... (Esc)"
+          autocomplete="off" />
+      </div>
+      <div id="quick-search-results" class="search-results-list">
+        <!-- Hasil pencarian bakal dirender otomatis lewat JS di sini -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Template / Structure Confirm Modal -->
+  <div id="confirm-modal" class="modal-overlay" hidden>
+    <div class="modal-box"
+      style="position: relative; max-width: 480px; background: var(--sf); color: var(--tx); border-radius: 12px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);">
+
+      <!-- Header Modal dengan Tombol Close (X) -->
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--bd); padding-bottom: 0.5rem;">
+        <h3 style="margin: 0; font-size: 1.15rem; font-weight: 600;">Konfirmasi</h3>
+        <button id="btn-modal-close"
+          style="background: transparent; border: none; font-size: 1.25rem; cursor: pointer; color: var(--mu); line-height: 1; padding: 4px 8px; border-radius: 4px;">&times;</button>
+      </div>
+
+      <!-- Isi Pesan Peringatan -->
+      <div id="confirm-modal-body" style="margin-bottom: 1.5rem; color: var(--tx); font-size: 0.95rem;">
+        <!-- Pesan konfirmasi & peringatan merah di-inject dari JS -->
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+        <button id="btn-modal-cancel" class="btn s" style="padding: 0.5rem 1rem; border-radius: 6px;">Batal</button>
+        <button id="btn-modal-confirm" class="btn d"
+          style="background: #ef4444; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 6px;">Hapus</button>
+      </div>
+
+    </div>
+  </div>
+
+  <main id="content" class="wrap" tabindex="-1"></main>
+
+  <footer class="wrap foot">
+    Wisma Visit Management System · Prototype frontend (data tersimpan di browser)
+  </footer>
+
+  <div id="modal" hidden></div>
+  <div id="toast" aria-live="polite"></div>
+
+  <!-- Wadah tersembunyi untuk menyimpan elemen <template> yang di-load via fetch -->
+  <div id="template-container" hidden></div>
+
+  <script src="js/app.js?v=6"></script>
+  <script src="js/dashboard.js?v=6"></script>
+  <script src="js/wisma.js?v=6"></script>
+  <script src="js/kunjungan.js?v=6"></script>
+  <script src="js/laporan.js?v=6"></script>
+  <script src="js/settings.js?v=6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+  <script src="js/fitur.js?v=6"></script>
+  <script src="js/main.js?v=6"></script>
+  <script src="js/profil.js?v=6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

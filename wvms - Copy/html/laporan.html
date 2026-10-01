@@ -1,0 +1,44 @@
+<div id="laporan-header-slot"></div>
+
+<!-- Filter Laporan Rentang Tanggal -->
+<div class="panel">
+    <div class="tb">
+        <label class="fl-inline">
+            <span>Dari Tanggal:</span>
+            <input type="date" id="lap-tgl-mulai">
+        </label>
+        <label class="fl-inline">
+            <span>Sampai Tanggal:</span>
+            <input type="date" id="lap-tgl-selesai">
+        </label>
+        <button class="btn p" data-act="filterLaporan">Terapkan Filter</button>
+        <button class="btn s" data-act="resetFilterLaporan">Reset</button>
+        <span class="grow"></span>
+        <button class="btn s" data-act="expLaporan">Ekspor CSV</button>
+        <button class="btn p" data-act="cetakLaporan">Simpan PDF</button>
+    </div>
+</div>
+
+<!-- Kartu Ringkasan Stat Laporan -->
+<div class="grid-4" id="laporan-stats-slot"></div>
+
+<!-- Tabel Ringkasan per Wisma -->
+<div class="panel">
+    <h3>Ringkasan Kunjungan per Wisma</h3>
+    <div class="tw">
+        <table>
+            <thead>
+                <tr>
+                    <th>Kode Wisma</th>
+                    <th>Nama Wisma</th>
+                    <th>PIC</th>
+                    <th class="r">Terjadwal</th>
+                    <th class="r">Selesai</th>
+                    <th class="r">Terlambat</th>
+                    <th class="r">Total</th>
+                </tr>
+            </thead>
+            <tbody id="laporan-table-body"></tbody>
+        </table>
+    </div>
+</div>

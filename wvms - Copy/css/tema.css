@@ -1,0 +1,48 @@
+/* Tiga palet kalem (Teal, Biru, Pasir), masing-masing terang dan gelap. Diganti di Pengaturan > Tampilan. */
+:root { --pri:#2f7472; --sec:#4f8a86; --bg:#f3f5f2; --sf:#fcfdfb; --bd:#dfe5e0; --th:#ebefea; --hv:#f0f4ef; --tx:#27302e; --mu:#667572; --ok:#3f8f6b; --wa:#b98a3c; --er:#c2645c; --in:#4a86a3; --nav:#2f7472; --br1:#2f6f6c; --br2:#1f4a48; }
+[data-p=biru] { --pri:#3f6b8f; --sec:#5b7a94; --bg:#f2f5f8; --sf:#fbfcfd; --bd:#dde4ea; --th:#eaeff3; --hv:#f0f4f7; --tx:#26323d; --mu:#6d7b88; --in:#4a80a8; --nav:#3f6b8f; --br1:#35617f; --br2:#20394d; }
+[data-p=pasir] { --pri:#9a6f4d; --sec:#a88467; --bg:#f6f2ec; --sf:#fdfbf8; --bd:#e6ded2; --th:#efe8de; --hv:#f3ede4; --tx:#33302b; --mu:#7a7268; --in:#6f8fa3; --nav:#8f6646; --br1:#8a6247; --br2:#5a3f2b; }
+[data-t=dark] { --pri:#6db8b1; --sec:#5aa39c; --bg:#0f1516; --sf:#162022; --bd:#263436; --th:#1c2829; --hv:#1a2526; --tx:#d8e4e2; --mu:#86989a; --ok:#74bd9b; --wa:#d6b06a; --er:#e08a83; --in:#7ab4cf; --nav:#1b2c2d; --br1:#1f4a48; --br2:#142f2e; }
+[data-p=biru][data-t=dark] { --pri:#7fa8c6; --sec:#6f93ae; --bg:#12171c; --sf:#1a2129; --bd:#2a3440; --th:#212a33; --hv:#1f2731; --tx:#dbe3ea; --mu:#8794a2; --in:#7fb0d3; --nav:#1f2b36; --br1:#2b4e69; --br2:#1c3345; }
+[data-p=pasir][data-t=dark] { --pri:#d0a37a; --sec:#b98f69; --bg:#171411; --sf:#1f1b17; --bd:#322c26; --th:#26211c; --hv:#241f1a; --tx:#e6dfd5; --mu:#a09688; --in:#86a9bd; --nav:#2a2119; --br1:#5a3f2b; --br2:#3a281b; }
+
+/* Lebih enak dibaca */
+body { font-size: 14.5px; line-height: 1.6; }
+.panel, .card { border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 18px rgba(0,0,0,.035); }
+[data-t=dark] .panel, [data-t=dark] .card { box-shadow: none; }
+.btn, input, select, textarea { border-radius: 8px; }
+.btn.p { background: var(--pri); border-color: var(--pri); color: #fff; }
+[data-t=dark] .btn.p { color: #10181a; }
+th { font-weight: 600; }
+tbody tr { transition: background .12s; }
+tbody tr:hover { background: var(--hv); }
+#content.masuk { animation: masuk .25s ease-out; }
+@keyframes masuk { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { #content.masuk { animation: none; } }
+.palet { display: flex; gap: 12px; flex-wrap: wrap; }
+.palet button { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border: 2px solid var(--bd); border-radius: 12px; background: var(--sf); color: var(--tx); cursor: pointer; font: inherit; }
+.palet button.on { border-color: var(--pri); }
+.palet i { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: -8px; border: 2px solid var(--sf); }
+
+#nav .wrap { justify-content: center; }
+.fl-inline { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--mu); }
+.meter { height: 8px; border-radius: 99px; background: var(--th); margin: 8px 0; overflow: hidden; }
+.meter i { display: block; height: 100%; border-radius: 99px; background: var(--ok); }
+section[hidden] { display: none; }
+
+/* Timeline riwayat wisma */
+.tl { border-left: 2px solid var(--bd); margin: 0 0 0 8px; padding: 4px 0 0 20px; }
+.tl .it { position: relative; margin-bottom: 18px; }
+.tl .it::before { content: ""; position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--pri); border: 2px solid var(--sf); }
+.tl img { max-width: 170px; border-radius: 6px; margin: 6px 8px 0 0; }
+
+/* Cetak lembar QR: hanya lembar QR yang tercetak */
+#cetak-qr { display: none; }
+@media print {
+  body.cetak-qr { background: #fff !important; }
+  body.cetak-qr > *:not(#cetak-qr) { display: none !important; }
+  body.cetak-qr #cetak-qr { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 8mm; }
+  .kartu-qr { border: 1px dashed #999; border-radius: 6px; padding: 10px; text-align: center; break-inside: avoid; color: #000; }
+  .kartu-qr b { display: block; font-size: 12pt; margin-top: 6px; }
+  .kartu-qr span { font-size: 10pt; }
+}

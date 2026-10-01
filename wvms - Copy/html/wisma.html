@@ -1,0 +1,43 @@
+<div id="wisma-header-slot"></div>
+
+<div class="panel" data-g="w">
+    <div class="tb">
+        <input type="search" placeholder="Cari nama, kode, alamat, PIC…" data-g="w" data-q aria-label="Cari wisma">
+        <select data-g="w" data-f="pic" aria-label="Filter PIC"><option value="">Semua PIC</option></select>
+        <select data-g="w" data-f="status" aria-label="Filter status wisma"><option value="">Semua Status</option><option>Aktif</option><option>Renovasi</option><option>Tutup Sementara</option></select>
+        <select data-g="w" data-f="jadwal" aria-label="Filter jadwal"><option value="">Semua Jadwal</option><option value="ada">Ada jadwal aktif</option><option value="belum">Belum ada jadwal</option></select>
+        <label class="fl-inline"><span>Kunjungan dari</span><input type="date" data-g="w" data-f="dari" aria-label="Kunjungan dari tanggal"></label>
+        <label class="fl-inline"><span>sampai</span><input type="date" data-g="w" data-f="sampai" aria-label="Kunjungan sampai tanggal"></label>
+        <button class="btn s" data-act="resetFilterW">Reset filter</button>
+        <span class="grow"></span>
+        <button class="btn s" data-act="expW">Ekspor CSV</button>
+        <button class="btn s" data-act="impW">Impor CSV</button>
+    </div>
+
+    <div id="wisma-bulk-slot" hidden></div>
+
+    <div class="tw">
+        <table>
+            <thead>
+                <tr>
+                    <th class="ck"><input type="checkbox" data-g="w" data-all aria-label="Pilih semua"></th>
+                    <th data-g="w" data-sort="nama">Nama & Alamat</th>
+                    <th data-g="w" data-sort="kode">Kode</th>
+                    <th data-g="w" data-sort="pic">PIC</th>
+                    <th class="r" data-g="w" data-sort="kunjunganCount">Total Kunjungan</th>
+                    <th class="r">Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="wisma-table-body"></tbody>
+        </table>
+    </div>
+
+    <div class="pg" id="wisma-pagination-slot"></div>
+</div>
+
+<div class="panel" style="margin-top: 24px;">
+    <h2>Visual Denah & Status Wisma</h2>
+    <div id="denah-wisma-container" style="padding: 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
+        <!-- Kartu denah akan di-render di sini oleh JavaScript -->
+    </div>
+</div>

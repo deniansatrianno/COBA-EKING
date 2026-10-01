@@ -1,0 +1,89 @@
+<div id="dashboard-header-slot"></div>
+
+<div class="cards">
+    <div class="card">
+        <small>Total Wisma</small>
+        <b id="dash-total-wisma">0</b>
+    </div>
+    <div class="card wa">
+        <small>Kunjungan Hari Ini</small>
+        <b id="dash-today">0</b>
+    </div>
+    <div class="card in">
+        <small>Kunjungan Terjadwal</small>
+        <b id="dash-scheduled">0</b>
+    </div>
+    <div class="card ok">
+        <small>Kunjungan Selesai</small>
+        <b id="dash-completed">0</b>
+    </div>
+    <div class="card er">
+        <small>Kunjungan Terlambat</small>
+        <b id="dash-overdue">0</b>
+    </div>
+</div>
+
+<div class="panel">
+    <h2>Aksi Cepat</h2>
+    <div class="pb">
+        <button class="btn p" data-act="addW">+ Tambah Wisma</button>
+        <button class="btn p" data-act="addK">+ Buat Jadwal Kunjungan</button>
+        <a class="btn btn-nav-link" href="#wisma">Lihat Data Wisma</a>
+        <a class="btn btn-nav-link" href="#kunjungan">Lihat Jadwal</a>
+    </div>
+</div>
+
+<div class="cols">
+    <div class="panel">
+        <h2>Kunjungan Terbaru</h2>
+        <div class="tw">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Wisma</th>
+                        <th>PIC</th>
+                        <th>Status</th>
+                        <th class="r">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="dash-recent-table"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Container Chart Dashboard -->
+    <div class="dashboard-charts-grid"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+
+        <!-- Chart 1: Status Kunjungan -->
+        <div class="card"
+            style="background: var(--sf); padding: 1.25rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Statistik Status Kunjungan</h3>
+            <div style="position: relative; height: 250px;">
+                <canvas id="chart-status-kunjungan"></canvas>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+    <div class="panel">
+        <h2>Kunjungan Mendatang</h2>
+        <div class="tw">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Wisma</th>
+                        <th>PIC</th>
+                        <th>Status</th>
+                        <th class="r">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="dash-upcoming-table"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
